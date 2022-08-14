@@ -1,0 +1,15 @@
+<html>
+  <head><title>TODOs Notepad</title></head>
+  <body>
+    <textarea id="todos" style="width: 100%; height: 100%;" oninput="save();"></textarea>
+    <script>
+      function save() {
+        window.localStorage.setItem("todosNotepad", document.getElementById("todos").value);
+      }
+      function load() {
+        document.getElementById("todos").value = window.localStorage.getItem("todosNotepad");
+      }
+      load();
+    </script>
+  </body>
+</html>
