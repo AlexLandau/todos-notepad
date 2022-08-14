@@ -3,6 +3,12 @@
   <body>
     <textarea id="todos" style="width: 100%; height: 100%;" oninput="save();"></textarea>
     <script>
+      // Ignore Ctrl+S, which I use impulsively while typing
+      document.addEventListener("keydown", function(e) {
+        if (e.key === "s" && (e.metaKey || e.ctrlKey)) {
+          e.preventDefault();
+        }
+      }, false);
       function save() {
         window.localStorage.setItem("todosNotepad", document.getElementById("todos").value);
       }
